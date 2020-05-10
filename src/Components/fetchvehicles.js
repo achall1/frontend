@@ -1,8 +1,8 @@
-
+import {API} from "../config";
 
 
 export const getVehicles = () => {
-    return fetch(`http://localhost:8000/api/vehicles/findall`, {
+    return fetch(`${API}/vehicles/findall`, {
         method: "GET"
     })
         .then(response => {
@@ -29,7 +29,7 @@ export const getVehicles = () => {
 */
 
 export const read = productId => {
-    return fetch(`http://localhost:8000/api/vehicle/${productId}`, {
+    return fetch(`${API}/vehicle/${productId}`, {
         method: "GET"
     })
         .then(response => {
@@ -40,7 +40,7 @@ export const read = productId => {
 
 
 export const createOrder = (customerId, token, createOrderData) => {
-    return fetch(`http://localhost:8000/api/order/create/${customerId}`, {
+    return fetch(`${API}/order/create/${customerId}`, {
         method: "POST",
         headers: {
             Accept: "application/json",
@@ -74,7 +74,7 @@ export const authenticate = (data, next) => {
     }
 };
 export const getBraintreeClientToken = (customerId, token) => {
-    return fetch(`http://localhost:8000/api/braintree/getToken/${customerId}`, {
+    return fetch(`${API}/braintree/getToken/${customerId}`, {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -89,7 +89,7 @@ export const getBraintreeClientToken = (customerId, token) => {
 };
 
 export const processPayment = (customerId, token, paymentData) => {
-    return fetch(`http://localhost:8000/api/braintree/payment/${customerId}`, {
+    return fetch(`${API}/braintree/payment/${customerId}`, {
         method: "POST",
         headers: {
             Accept: "application/json",
